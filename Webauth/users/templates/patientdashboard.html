@@ -1,0 +1,35 @@
+{%extends 'base.html' %}
+
+
+{%block content%}
+<div class="container">
+
+</div>
+
+
+
+
+
+
+
+
+
+\<h1>THIS IS THE PATIENT DASHBOARD</h1>
+<h1>Welcome {{user.username}} </h1>
+
+{% for doctor in doctors%}
+
+<p>
+    <div class="card">
+        <h5 class="card-header">Dr. {{doctor.get_full_name}}</h5>
+        <div class="card-body">
+          <h5 class="card-title">Specialization: {{doctor.specialization}}</h5>
+          <a href="{% url 'appointment' doctor.id  %}" class="btn btn-primary">Book appointment</a>
+        </div>
+    </div>
+</p>
+
+
+{%endfor%}
+
+{%endblock%}

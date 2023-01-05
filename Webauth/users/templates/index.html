@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static%}
+
+    {% block content%}
+    <style>
+        .index{
+            left: 20%;
+            
+            position:absolute;
+            
+        }
+    </style>
+
+    <H1>FIND DOCTORS HERE</H1>
+    <div class="index">
+    {% for doctor in doctors%}
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp"
+              alt="Trendy Pants and Shoes"
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Dr. {{doctor.username}}</h5>
+              <p class="card-text">
+                Specialization:{{doctor.specialization}}<br>
+                This is a wider card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Joined ...{{date}}</small>
+              </p>
+              <a href="{% url 'appointment' doctor.id user.id %}"><button type="button" class="btn btn-secondary">Make Appointment</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+   
+      
+    </div>
+    {% endblock %}

@@ -1,0 +1,40 @@
+{%extends 'base.html' %}
+
+
+{%block content%}
+<style>
+    .apt{
+        left:30%;
+        
+        position:absolute;
+        
+    }
+</style>
+<div class="apt">
+<form method="POST">
+    {% csrf_token %}
+    <h1>Make appointment here</h1><hr>
+    <h2>Appointment with Dr. {{doctor.get_full_name}}</h2>
+
+        <p>
+        <label for="time">Date
+        <input type="date" name="date" required>
+        </label>
+        </p>
+
+        
+        
+        <p>
+        <label>Describe your issue here
+        <p>
+        
+            <textarea name="comments" rows="10" cols="40"></textarea>
+            </label>
+        </p>
+    
+        
+    <button class="btn btn-primary" type="submit">Confirm Appointment</button>
+</form>
+</div>
+
+{%endblock%}
