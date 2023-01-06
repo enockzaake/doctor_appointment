@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=3-c+9d-bj5%l)=$z7t$@6mun+oyafl$ey&i+hl%)bo31_7pk8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-    'auth'
 ]
 
 MIDDLEWARE = [
@@ -79,8 +78,12 @@ WSGI_APPLICATION = 'Webauth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Hospital',
+        'USER':'postgres',
+        'PASSWORD':'enock',
+        'HOST':'localhost',
+        'PORT':'5432'
     }
 }
 

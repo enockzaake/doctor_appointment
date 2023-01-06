@@ -1,7 +1,7 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import AbstractUser
-
+from django.utils import timezone
 
 class CustomUser(AbstractUser):
     email=models.EmailField(unique=True)
@@ -43,7 +43,7 @@ class Appointment(models.Model):
     patient=models.ForeignKey(Patient,related_name='patient',on_delete=models.CASCADE)
     doctor=models.ForeignKey(Doctor,related_name='doctor',on_delete=models.CASCADE)
     issue=models.TextField()
-    date=models.DateField(default=datetime.date.today())
+    date=models.DateField(default=timezone.now)
 
     def __str__(self):
         return self.patient.get_full_name()
