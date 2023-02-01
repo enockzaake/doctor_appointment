@@ -19,17 +19,16 @@ def patient_register(request):
     form=PatientSignUpForm()
     if request.method == 'POST':
         form=PatientSignUpForm(request.POST)
-        print('valid.................. 1')
         if form.is_valid():
             user=form.save(commit=False)
             user.set_password(form.cleaned_data['password2'])
             user.save()
-            print('valid..................')
             return redirect('login')
         else:
             messages.success(request,form.errors)    
 
     return render(request,'patientregister.html',{'form':form})
+
 
 def user_login(request):
     if request.method == 'POST':

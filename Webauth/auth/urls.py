@@ -9,3 +9,4 @@ urlpatterns=[
     path('patientregister/',views.patient_register,name='patientregister'),
 ]
 
+    

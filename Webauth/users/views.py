@@ -26,10 +26,10 @@ def appointment(request,doc_id,p_id):
     doctor=Doctor.objects.get(id=doc_id)
     if request.method == 'POST':
         doctor=Doctor.objects.get(id=doc_id)
-        patient=Patient.objects.get(id=p_id)
+        patient=Patient.objects.get(id=11)
         issue=request.POST['issue']
         date=request.POST['date']
-        date=datetime.date.strftime("%m/%d/%y")
+        #date=datetime.date.strftime("%m/%d/%y")
         appoint=Appointment.objects.create(issue=issue,doctor=doctor,patient=patient,date=date)
         appoint.save()
         messages.success(request,'Appointment booked succesfully')
